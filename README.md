@@ -1,8 +1,8 @@
-###环境配置
+### 环境配置
      ``react-app-rewired``对create-react-app的二次配置
      ```yarn add babel-plugin-import``` AntD按需加载
 
-###技术站
+### 技术站
     React
     React-router-dom
     Redux
