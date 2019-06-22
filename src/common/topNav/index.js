@@ -2,7 +2,7 @@
 import React from "react"
 import logo from "static/images/logo.png"
 
-import { Layout, Menu} from 'antd';
+import { Layout, Menu, Icon} from 'antd';
 const { Header } = Layout;
 const { SubMenu }  = Menu;
 
@@ -28,6 +28,7 @@ export default class TopNav extends React.Component{
               <SubMenu
                 title={
                   <span className="submenu-title-wrapper">
+                    <Icon type="setting" />
                     设置
                   </span>
                 }

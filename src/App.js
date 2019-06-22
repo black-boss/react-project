@@ -19,7 +19,7 @@ class App extends React.Component{
           }
           <Redirect from="/admin" to="/admin/home" exact />
         </LayoutCom>
-          <Redirect from="**" to="/404"/>
+        <Redirect from="**" to="/404"/>
       </Switch>
     )
   }

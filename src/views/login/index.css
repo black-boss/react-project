@@ -1,0 +1,27 @@
+
+body{
+    background: rgb(97, 100, 102);
+}
+
+.main{
+    width: 400px;
+    height: 400px;
+    background: skyblue;
+    position: fixed;
+    left: 0;right: 0;bottom: 0;top: 0;
+    margin: auto;
+    text-align: center;
+    border-radius: 20px;
+}
+.input{
+    width: 300px;padding: 5px 0;
+}
+.login-form-button{
+    margin: 0 20px;
+    width: 100px;
+}
+
+img{
+    width: 360px;
+    margin: 45px 0;
+}

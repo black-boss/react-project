@@ -13,8 +13,7 @@ const { Content, Sider} = Layout;
 export default class LayoutCom extends React.Component{
     render(){
         return(
-      <Layout style={{height:"100%"}}>
-
+      <Layout>
           {/* 头部导航 */}
           <TopNav></TopNav> 
 

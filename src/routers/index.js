@@ -31,15 +31,15 @@ export const pageRoute = [
     {
         pathname:"/admin/setting",
         component:Setting,
-        title:"班级管理",
+        title:"商家管理",
         icon:"setting",
         children:[
             {
-                title:"查看班级",
-                pathname:"/admin/settings1"
+                title:"商家列表",
+                pathname:"/admin/setting"
             },
             {
-                title:"测评管理",
+                title:"商家店铺",
                 pathname:"/admin/settings2"
             }
         ]

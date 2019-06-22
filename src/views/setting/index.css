@@ -1,0 +1,13 @@
+
+
+.ant-table-tbody > tr > td:nth-child(1) {
+    width: 80px;
+}
+
+.ant-table-tbody > tr > td:nth-child(2) {
+    width: 180px;
+}
+
+.ant-table-tbody > tr > td:nth-child(3) {
+    width: 400px;
+}
