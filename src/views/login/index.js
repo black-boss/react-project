@@ -3,7 +3,11 @@ import React from "react"
 import "./index.css"
 import logo from "static/images/logo.png"
 
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
+
+import {connect} from "react-redux"
+import {loginActionAsync} from "action/user"
+
 
 class Login extends React.Component{
     handleSubmit = e => {
@@ -19,9 +23,9 @@ class Login extends React.Component{
         return(
             <div className={"main"}>
                 <img src={logo} alt="logo" />
-                <Form onSubmit={this.handleSubmit} className="login-form">
+                <Form onSubmit={this.props.handleSubmit.bind(this)} className="login-form">
                     <Form.Item>
-                    {getFieldDecorator('username', {
+                    {getFieldDecorator('username', {    
                         rules: [{ required: true, message: '请输入您的用户名！' }],
                     })(
                         <Input
@@ -57,8 +61,18 @@ class Login extends React.Component{
                 </Form>
             </div>
         )
-    }
+    } 
 }
+const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(Login);
+ 
+const mapDispatchToPorps = (dispatch)=>({
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.form.validateFields((values)=>{
+            dispatch(loginActionAsync(values))
+        })
+        this.props.history.push("./admin")
+    }
+})
 
- const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(Login);
- export default WrappedNormalLoginForm
+export default connect(null,mapDispatchToPorps)(WrappedNormalLoginForm)

@@ -11,3 +11,8 @@
 .ant-table-tbody > tr > td:nth-child(3) {
     width: 400px;
 }
+
+tr td img{
+    width: 80px;
+    margin: 0;
+}

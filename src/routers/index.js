@@ -55,8 +55,8 @@ export const pageRoute = [
                 pathname:"/admin/users1"
             },
             {
-                title:"用户权限",
-                pathname:"/admin/users2"
+                title:"提交建议",
+                pathname:"/admin/users"
             }
         ]
     }

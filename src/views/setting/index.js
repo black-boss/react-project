@@ -8,6 +8,11 @@ import { blist } from "api/blist"
 
 import XLSX from "xlsx"
 
+import ModalCom,{showConfirm} from "components/modal"
+
+import {tabSaveAction} from "action/tabAction"
+import { connect } from "react-redux";
+
 // const dataSource = [
 //     {
 //       key: '1',
@@ -36,17 +41,18 @@ import XLSX from "xlsx"
 //     }
 //   ];
 
-export default class Setting extends React.Component{
+class Setting extends React.Component{
     constructor(){
         super()
         this.state = {
             dataSource:[],
             columns:[],
             flag:true,
+            modalStatus:false,
         }
     }
     render(){
-        let {dataSource,columns,flag} = this.state
+        let {dataSource,columns,flag,modalStatus} = this.state
         return(
         <div style={{ background: '#ECECEC'}}>
             <Card
@@ -64,6 +70,8 @@ export default class Setting extends React.Component{
                     hideOnSinglePage: true,
                     onChange: this.handleChange.bind(this),
                 }}/>
+                {/* <ModalStatus modalStatus={modalStatus}/> */}
+                <ModalCom modalStatus={modalStatus}/>
             </Card>
         </div>
         )
@@ -134,9 +142,14 @@ export default class Setting extends React.Component{
 
     handleModify(record){
         console.log(record)
+        this.setState({
+            modalStatus:true
+        })
+        this.props.tabSaveData(record)
     }
     handleDel(record){
         console.log(record)
+        showConfirm()  
     }
 
     // 导出列表文件
@@ -153,3 +166,11 @@ export default class Setting extends React.Component{
         XLSX.writeFile(wb,"商家列表.xlsx")
     }
 }
+
+const mapDispathToprops =(dispatch)=>({
+    tabSaveData(val){
+        dispatch(tabSaveAction(val))
+    }
+})
+
+export default connect(null,mapDispathToprops)(Setting)
